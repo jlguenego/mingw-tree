@@ -1,0 +1,69 @@
+tree
+------------------------------------------
+Recursive directory listing
+
+Runtime requirements:
+  cygwin-1.5.x or newer
+
+Build requirements:
+  cygwin-1.5.x or newer
+
+Canonical homepage:
+  http://mama.indstate.edu/users/ice/tree/
+
+Canonical download:
+  ftp://mama.indstate.edu/linux/tree/tree-1.5.2.2.tgz
+  
+------------------------------------
+
+Build instructions:
+  unpack tree-1.5.2.2-EL-1-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  make
+  mv INSTALL INSTALLATION # Or target install will not work
+  make install prefix=/tmp/tree/usr # For packaging
+  install -d /tmp/tree/usr/share/doc/Cygwin
+  install CYGWIN-PATCHES/tree-1.5.2.2.README /tmp/tree/usr/share/doc/Cygwin/tree-1.5.2.2.README
+
+-------------------------------------------
+
+Files included in the binary distro
+`-- usr
+    |-- bin
+    |   `-- tree.exe
+    |-- man
+    |   `-- man1
+    |       `-- tree.1
+    `-- share
+        `-- doc
+            `-- Cygwin
+                `-- tree-1.5.2.2.README
+
+------------------
+
+Port Notes:
+
+----- version 1.5.2.2-EL-1 -----
+Upstream 1.5.2.2
+Same changes as in previous version
+
+----- version 1.5.2.1-EL-1 -----
+Upstream 1.5.2.1
+Commented out lines for Cygwin in the Makefile
+Changed INSTALL to INSTALLTION for target install of Makefile
+
+----- version 1.5.1.1-EL-1 -----
+Upstream 1.5.1.1
+Commented out lines for Cygwin in the Makefile
+
+----- version 1.5.0-EL-1 -----
+Ported to 1.5.0
+Some small changes in Makefile and tree.c (see patch file)
+
+----- version 1.4.3b-EL-1 -----
+Initial release
+
+Cygwin port maintained by: Eric LASSAUGE <lassauge@users.sourceforge.net>
+			   http://lassauge.free.fr/cygwin/
