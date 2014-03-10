@@ -62,6 +62,10 @@
 #include <wchar.h>
 #include <wctype.h>
 
+#ifdef __MINGW32__
+#include "mingw.h"
+#endif
+
 static char *version ="$Version: $ tree v1.5.2.2 (c) 1996 - 2009 by Steve Baker, Thomas Moore, Francesc Rocher, Kyosuke Tokoro $";
 static char *hversion="\t\t\t tree v1.5.2.2 %s 1996 - 2009 by Steve Baker and Thomas Moore <br>\n"
 		      "\t\t\t HTML output hacked and copyleft %s 1998 by Francesc Rocher <br>\n"
@@ -978,7 +982,7 @@ char *gnu_getcwd()
 {
   int size = 100;
   char *buffer = (char *) xmalloc (size);
-     
+
   while (1)
     {
       char *value = getcwd (buffer, size);

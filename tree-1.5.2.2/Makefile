@@ -36,10 +36,17 @@ MANDIR=${prefix}/man/man1
 #MANDIR=${prefix}/share/man/man1
 
 # Uncomment for Cygwin:
-CFLAGS=-O4 -march=i686 -Wall -fomit-frame-pointer -DCYGWIN -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+#CFLAGS=-O4 -march=i686 -Wall -fomit-frame-pointer -DCYGWIN -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+#LDFLAGS=-s
+#TREE_DEST=tree.exe
+#XOBJS=strverscmp.o
+
+# Uncomment for MingW:
+CPPFLAGS=-I.
+CFLAGS=-O4 -march=i686 -Wall -fomit-frame-pointer -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 LDFLAGS=-s
 TREE_DEST=tree.exe
-XOBJS=strverscmp.o
+XOBJS=strverscmp.o pwd.o grp.o
 
 # Uncomment for OS X:
 #CC=cc
@@ -75,6 +82,8 @@ tree:	tree.o $(XOBJS)
 
 tree.o:	tree.c
 
+pwd.o:	pwd.c
+grp.o:	grp.c
 strverscmp.o:	strverscmp.c
 
 clean:
@@ -93,7 +102,7 @@ install: tree
 distclean:
 	if [ -f tree.o ]; then rm *.o; fi
 	rm -f *~
-	
+
 
 dist:	distclean
 	tar zcf ../tree-$(VERSION).tgz -C .. `cat .tarball`
