@@ -1,0 +1,31 @@
+Installation instructions:
+
+Important: Note for MINGW user
+
+When opening a MINGW terminal you run the C:\MinGW\msys\1.0\msys.bat batch file.
+When opening a MSYS terminal you run the
+ C:\MinGW\msys\1.0\msys.bat MSYS 
+batch file. Note the option MSYS after the command.
+
+It is not possible to compile with the MINGW gcc toolchain.
+You must use the MSYS gcc toolchain (MSYS is a CYGWIN derived system).
+See the following url to have a MSYS system: 
+http://www.mingw.org/wiki/HOWTO_Create_an_MSYS_Build_Environment
+After compilation and installation, you can use the tree command
+in MINGW.
+
+End MINGW
+
+1. Edit the Makefile for your OS.  Comment out the Linux options and uncomment
+   the options for your OS.
+2. Type: make
+3. Type: make install
+4. Enjoy colorful directory trees.
+
+  I cannot test on non-Linux machines, so please feel free to contribute
+porting information, bug reports, compile options, patches, etc for porting to
+other OS's to ice@mama.indstate.edu.
+
+  I would also welcome any localization efforts, particularly translating the
+man page to other languages.  And of course feel free to suggest options and
+improvements you would like to see in tree.
